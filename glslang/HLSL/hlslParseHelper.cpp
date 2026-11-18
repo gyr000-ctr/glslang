@@ -6373,6 +6373,33 @@ void HlslParseContext::handleSemantic(TSourceLoc loc, TQualifier& qualifier, TBu
         // adjust for stage in/out
         if (language == EShLangFragment)
             builtIn = EbvFragCoord;
+        // A single declaration cannot mix SV_Position with SV_Barycentrics.
+        if (qualifier.builtIn == EbvBaryCoordEXT || qualifier.builtIn == EbvBaryCoordNoPerspEXT)
+            error(loc, "SV_Position cannot be combined with SV_Barycentrics on the same declaration", "SV_POSITION", "");
+        break;
+    case EbvBaryCoordEXT:
+        // SV_Barycentrics is only valid as a fragment shader input.
+        if (language != EShLangFragment) {
+            error(loc, "SV_Barycentrics is only valid as a fragment shader input", "SV_BARYCENTRICS", "");
+            break;
+        }
+        if (qualifier.isParamOutput()) {
+            error(loc, "SV_Barycentrics is only valid as a fragment shader input", "SV_BARYCENTRICS", "");
+            break;
+        }
+        // A single declaration cannot mix SV_Barycentrics with SV_Position.
+        if (qualifier.builtIn == EbvPosition || qualifier.builtIn == EbvFragCoord)
+            error(loc, "SV_Barycentrics cannot be combined with SV_Position on the same declaration", "SV_BARYCENTRICS", "");
+        // Only the noperspective interpolation modifier is meaningful for
+        // SV_Barycentrics; the others conflict with it.
+        if (qualifier.flat || qualifier.centroid || qualifier.sample)
+            error(loc, "interpolation modifier conflicts with SV_Barycentrics", "SV_BARYCENTRICS", "");
+        if (qualifier.nopersp) {
+            // Select the non-perspective-correct variant.  The built-in fully
+            // encodes the interpolation, so the qualifier is not propagated.
+            builtIn = EbvBaryCoordNoPerspEXT;
+            qualifier.nopersp = false;
+        }
         break;
     case EbvFragStencilRef:
         error(loc, "unimplemented; need ARB_shader_stencil_export", "SV_STENCILREF", "");
@@ -9616,6 +9643,8 @@ bool HlslParseContext::isInputBuiltIn(const TQualifier& qualifier) const
     case EbvSampleMask:
     case EbvSamplePosition:
     case EbvViewportIndex:
+    case EbvBaryCoordEXT:
+    case EbvBaryCoordNoPerspEXT:
         return language == EShLangFragment;
     case EbvGlobalInvocationId:
     case EbvLocalInvocationIndex:

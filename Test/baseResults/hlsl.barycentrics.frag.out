@@ -1,0 +1,212 @@
+hlsl.barycentrics.frag
+Shader version: 500
+gl_FragCoord origin is upper left
+0:? Sequence
+0:11  Function Definition: @PSMain(struct-PSIn-vf3-vf31;vf3; ( temp 4-component vector of float)
+0:11    Function Parameters: 
+0:11      'input' ( in structure{ temp 3-component vector of float bary,  temp 3-component vector of float baryNoPersp})
+0:11      'baryParam' ( in 3-component vector of float)
+0:?     Sequence
+0:12      Sequence
+0:12        move second child to first child ( temp 3-component vector of float)
+0:12          'bary' ( temp 3-component vector of float)
+0:12          add ( temp 3-component vector of float)
+0:12            bary: direct index for structure ( temp 3-component vector of float)
+0:12              'input' ( in structure{ temp 3-component vector of float bary,  temp 3-component vector of float baryNoPersp})
+0:12              Constant:
+0:12                0 (const int)
+0:12            'baryParam' ( in 3-component vector of float)
+0:13      Branch: Return with expression
+0:13        Construct vec4 ( temp 4-component vector of float)
+0:13          add ( temp 3-component vector of float)
+0:13            'bary' ( temp 3-component vector of float)
+0:13            baryNoPersp: direct index for structure ( temp 3-component vector of float)
+0:13              'input' ( in structure{ temp 3-component vector of float bary,  temp 3-component vector of float baryNoPersp})
+0:13              Constant:
+0:13                1 (const int)
+0:13          Constant:
+0:13            1.000000
+0:11  Function Definition: PSMain( ( temp void)
+0:11    Function Parameters: 
+0:?     Sequence
+0:11      Sequence
+0:11        move second child to first child ( temp 3-component vector of float)
+0:11          bary: direct index for structure ( temp 3-component vector of float)
+0:?             'input' ( temp structure{ temp 3-component vector of float bary,  temp 3-component vector of float baryNoPersp})
+0:11            Constant:
+0:11              0 (const int)
+0:?           'input.bary' ( in 3-component vector of float BaryCoordKHR)
+0:11        move second child to first child ( temp 3-component vector of float)
+0:11          baryNoPersp: direct index for structure ( temp 3-component vector of float)
+0:?             'input' ( temp structure{ temp 3-component vector of float bary,  temp 3-component vector of float baryNoPersp})
+0:11            Constant:
+0:11              1 (const int)
+0:?           'input.baryNoPersp' ( in 3-component vector of float BaryCoordNoPerspKHR)
+0:11      move second child to first child ( temp 3-component vector of float)
+0:?         'baryParam' ( temp 3-component vector of float)
+0:?         'baryParam' ( in 3-component vector of float BaryCoordKHR)
+0:11      move second child to first child ( temp 4-component vector of float)
+0:?         '@entryPointOutput' (layout( location=0) out 4-component vector of float)
+0:11        Function Call: @PSMain(struct-PSIn-vf3-vf31;vf3; ( temp 4-component vector of float)
+0:?           'input' ( temp structure{ temp 3-component vector of float bary,  temp 3-component vector of float baryNoPersp})
+0:?           'baryParam' ( temp 3-component vector of float)
+0:?   Linker Objects
+0:?     '@entryPointOutput' (layout( location=0) out 4-component vector of float)
+0:?     'input.bary' ( in 3-component vector of float BaryCoordKHR)
+0:?     'input.baryNoPersp' ( in 3-component vector of float BaryCoordNoPerspKHR)
+0:?     'baryParam' ( in 3-component vector of float BaryCoordKHR)
+
+
+Linked fragment stage:
+
+
+Shader version: 500
+gl_FragCoord origin is upper left
+0:? Sequence
+0:11  Function Definition: @PSMain(struct-PSIn-vf3-vf31;vf3; ( temp 4-component vector of float)
+0:11    Function Parameters: 
+0:11      'input' ( in structure{ temp 3-component vector of float bary,  temp 3-component vector of float baryNoPersp})
+0:11      'baryParam' ( in 3-component vector of float)
+0:?     Sequence
+0:12      Sequence
+0:12        move second child to first child ( temp 3-component vector of float)
+0:12          'bary' ( temp 3-component vector of float)
+0:12          add ( temp 3-component vector of float)
+0:12            bary: direct index for structure ( temp 3-component vector of float)
+0:12              'input' ( in structure{ temp 3-component vector of float bary,  temp 3-component vector of float baryNoPersp})
+0:12              Constant:
+0:12                0 (const int)
+0:12            'baryParam' ( in 3-component vector of float)
+0:13      Branch: Return with expression
+0:13        Construct vec4 ( temp 4-component vector of float)
+0:13          add ( temp 3-component vector of float)
+0:13            'bary' ( temp 3-component vector of float)
+0:13            baryNoPersp: direct index for structure ( temp 3-component vector of float)
+0:13              'input' ( in structure{ temp 3-component vector of float bary,  temp 3-component vector of float baryNoPersp})
+0:13              Constant:
+0:13                1 (const int)
+0:13          Constant:
+0:13            1.000000
+0:11  Function Definition: PSMain( ( temp void)
+0:11    Function Parameters: 
+0:?     Sequence
+0:11      Sequence
+0:11        move second child to first child ( temp 3-component vector of float)
+0:11          bary: direct index for structure ( temp 3-component vector of float)
+0:?             'input' ( temp structure{ temp 3-component vector of float bary,  temp 3-component vector of float baryNoPersp})
+0:11            Constant:
+0:11              0 (const int)
+0:?           'input.bary' ( in 3-component vector of float BaryCoordKHR)
+0:11        move second child to first child ( temp 3-component vector of float)
+0:11          baryNoPersp: direct index for structure ( temp 3-component vector of float)
+0:?             'input' ( temp structure{ temp 3-component vector of float bary,  temp 3-component vector of float baryNoPersp})
+0:11            Constant:
+0:11              1 (const int)
+0:?           'input.baryNoPersp' ( in 3-component vector of float BaryCoordNoPerspKHR)
+0:11      move second child to first child ( temp 3-component vector of float)
+0:?         'baryParam' ( temp 3-component vector of float)
+0:?         'baryParam' ( in 3-component vector of float BaryCoordKHR)
+0:11      move second child to first child ( temp 4-component vector of float)
+0:?         '@entryPointOutput' (layout( location=0) out 4-component vector of float)
+0:11        Function Call: @PSMain(struct-PSIn-vf3-vf31;vf3; ( temp 4-component vector of float)
+0:?           'input' ( temp structure{ temp 3-component vector of float bary,  temp 3-component vector of float baryNoPersp})
+0:?           'baryParam' ( temp 3-component vector of float)
+0:?   Linker Objects
+0:?     '@entryPointOutput' (layout( location=0) out 4-component vector of float)
+0:?     'input.bary' ( in 3-component vector of float BaryCoordKHR)
+0:?     'input.baryNoPersp' ( in 3-component vector of float BaryCoordNoPerspKHR)
+0:?     'baryParam' ( in 3-component vector of float BaryCoordKHR)
+
+// Module Version 10000
+// Generated by (magic number): 8000b
+// Id's are bound by 54
+
+                              Capability Shader
+                              Capability FragmentBarycentricKHR
+                              Extension  "SPV_KHR_fragment_shader_barycentric"
+               1:             ExtInstImport  "GLSL.std.450"
+                              MemoryModel Logical GLSL450
+                              EntryPoint Fragment 4  "PSMain" 38 41 45 48
+                              ExecutionMode 4 OriginUpperLeft
+                              Source HLSL 500
+                              Name 4  "PSMain"
+                              Name 8  "PSIn"
+                              MemberName 8(PSIn) 0  "bary"
+                              MemberName 8(PSIn) 1  "baryNoPersp"
+                              Name 15  "@PSMain(struct-PSIn-vf3-vf31;vf3;"
+                              Name 13  "input"
+                              Name 14  "baryParam"
+                              Name 17  "bary"
+                              Name 36  "input"
+                              Name 38  "input.bary"
+                              Name 41  "input.baryNoPersp"
+                              Name 44  "baryParam"
+                              Name 45  "baryParam"
+                              Name 48  "@entryPointOutput"
+                              Name 49  "param"
+                              Name 51  "param"
+                              Decorate 38(input.bary) BuiltIn BaryCoordKHR
+                              Decorate 41(input.baryNoPersp) BuiltIn BaryCoordNoPerspKHR
+                              Decorate 45(baryParam) BuiltIn BaryCoordKHR
+                              Decorate 48(@entryPointOutput) Location 0
+               2:             TypeVoid
+               3:             TypeFunction 2
+               6:             TypeFloat 32
+               7:             TypeVector 6(float) 3
+         8(PSIn):             TypeStruct 7(fvec3) 7(fvec3)
+               9:             TypePointer Function 8(PSIn)
+              10:             TypePointer Function 7(fvec3)
+              11:             TypeVector 6(float) 4
+              12:             TypeFunction 11(fvec4) 9(ptr) 10(ptr)
+              18:             TypeInt 32 1
+              19:     18(int) Constant 0
+              25:     18(int) Constant 1
+              29:    6(float) Constant 1065353216
+              37:             TypePointer Input 7(fvec3)
+  38(input.bary):     37(ptr) Variable Input
+41(input.baryNoPersp):     37(ptr) Variable Input
+   45(baryParam):     37(ptr) Variable Input
+              47:             TypePointer Output 11(fvec4)
+48(@entryPointOutput):     47(ptr) Variable Output
+       4(PSMain):           2 Function None 3
+               5:             Label
+       36(input):      9(ptr) Variable Function
+   44(baryParam):     10(ptr) Variable Function
+       49(param):      9(ptr) Variable Function
+       51(param):     10(ptr) Variable Function
+              39:    7(fvec3) Load 38(input.bary)
+              40:     10(ptr) AccessChain 36(input) 19
+                              Store 40 39
+              42:    7(fvec3) Load 41(input.baryNoPersp)
+              43:     10(ptr) AccessChain 36(input) 25
+                              Store 43 42
+              46:    7(fvec3) Load 45(baryParam)
+                              Store 44(baryParam) 46
+              50:     8(PSIn) Load 36(input)
+                              Store 49(param) 50
+              52:    7(fvec3) Load 44(baryParam)
+                              Store 51(param) 52
+              53:   11(fvec4) FunctionCall 15(@PSMain(struct-PSIn-vf3-vf31;vf3;) 49(param) 51(param)
+                              Store 48(@entryPointOutput) 53
+                              Return
+                              FunctionEnd
+15(@PSMain(struct-PSIn-vf3-vf31;vf3;):   11(fvec4) Function None 12
+       13(input):      9(ptr) FunctionParameter
+   14(baryParam):     10(ptr) FunctionParameter
+              16:             Label
+        17(bary):     10(ptr) Variable Function
+              20:     10(ptr) AccessChain 13(input) 19
+              21:    7(fvec3) Load 20
+              22:    7(fvec3) Load 14(baryParam)
+              23:    7(fvec3) FAdd 21 22
+                              Store 17(bary) 23
+              24:    7(fvec3) Load 17(bary)
+              26:     10(ptr) AccessChain 13(input) 25
+              27:    7(fvec3) Load 26
+              28:    7(fvec3) FAdd 24 27
+              30:    6(float) CompositeExtract 28 0
+              31:    6(float) CompositeExtract 28 1
+              32:    6(float) CompositeExtract 28 2
+              33:   11(fvec4) CompositeConstruct 30 31 32 29
+                              ReturnValue 33
+                              FunctionEnd
