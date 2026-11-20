@@ -378,6 +378,7 @@ const char* const E_GL_EXT_shader_atomic_float2 = "GL_EXT_shader_atomic_float2";
 const char* const E_GL_EXT_shader_tile_image = "GL_EXT_shader_tile_image";
 
 const char* const E_GL_EXT_texture_shadow_lod = "GL_EXT_texture_shadow_lod";
+const char* const E_GL_EXT_texture_query_lod  = "GL_EXT_texture_query_lod";
 
 const char* const E_GL_EXT_integer_dot_product                    = "GL_EXT_integer_dot_product";
 

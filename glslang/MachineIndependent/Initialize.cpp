@@ -4744,6 +4744,43 @@ void TBuiltIns::initialize(int version, EProfile profile, const SpvVersion& spvV
             "\n");
     }
 
+    // Builtins for GL_EXT_texture_query_lod (fragment stage only, per the extension spec)
+    if (profile == EEsProfile && version >= 300) {
+        stageBuiltins[EShLangFragment].append(
+            "vec2 textureQueryLod(sampler2D, vec2);"
+            "vec2 textureQueryLod(isampler2D, vec2);"
+            "vec2 textureQueryLod(usampler2D, vec2);"
+            "vec2 textureQueryLod(sampler3D, vec3);"
+            "vec2 textureQueryLod(isampler3D, vec3);"
+            "vec2 textureQueryLod(usampler3D, vec3);"
+            "vec2 textureQueryLod(samplerCube, vec3);"
+            "vec2 textureQueryLod(isamplerCube, vec3);"
+            "vec2 textureQueryLod(usamplerCube, vec3);"
+            "vec2 textureQueryLod(sampler2DShadow, vec3);"
+            "vec2 textureQueryLod(samplerCubeShadow, vec4);"
+            "vec2 textureQueryLod(sampler2DArray, vec2);"
+            "vec2 textureQueryLod(isampler2DArray, vec2);"
+            "vec2 textureQueryLod(usampler2DArray, vec2);"
+            "vec2 textureQueryLod(sampler2DArrayShadow, vec3);"
+
+            "vec2 textureQueryLOD(sampler2D, vec2);"
+            "vec2 textureQueryLOD(isampler2D, vec2);"
+            "vec2 textureQueryLOD(usampler2D, vec2);"
+            "vec2 textureQueryLOD(sampler3D, vec3);"
+            "vec2 textureQueryLOD(isampler3D, vec3);"
+            "vec2 textureQueryLOD(usampler3D, vec3);"
+            "vec2 textureQueryLOD(samplerCube, vec3);"
+            "vec2 textureQueryLOD(isamplerCube, vec3);"
+            "vec2 textureQueryLOD(usamplerCube, vec3);"
+            "vec2 textureQueryLOD(sampler2DShadow, vec3);"
+            "vec2 textureQueryLOD(samplerCubeShadow, vec4);"
+            "vec2 textureQueryLOD(sampler2DArray, vec2);"
+            "vec2 textureQueryLOD(isampler2DArray, vec2);"
+            "vec2 textureQueryLOD(usampler2DArray, vec2);"
+            "vec2 textureQueryLOD(sampler2DArrayShadow, vec3);"
+            "\n");
+    }
+
     if (profile != EEsProfile && version >= 450) {
         stageBuiltins[EShLangFragment].append(derivativesAndControl64bits);
         stageBuiltins[EShLangFragment].append(
@@ -9673,6 +9710,11 @@ void TBuiltIns::identifyBuiltIns(int version, EProfile profile, const SpvVersion
 
         if (profile != EEsProfile && version < 400) {
             symbolTable.setFunctionExtensions("textureQueryLOD", 1, &E_GL_ARB_texture_query_lod);
+        }
+
+        if (profile == EEsProfile) {
+            symbolTable.setFunctionExtensions("textureQueryLod", 1, &E_GL_EXT_texture_query_lod);
+            symbolTable.setFunctionExtensions("textureQueryLOD", 1, &E_GL_EXT_texture_query_lod);
         }
 
         if (profile != EEsProfile && version >= 460) {

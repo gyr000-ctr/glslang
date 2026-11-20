@@ -401,6 +401,7 @@ void TParseVersions::initializeExtensionBehavior()
     extensionBehavior[E_GL_EXT_ray_tracing_position_fetch]  = EBhDisable;
     extensionBehavior[E_GL_EXT_shader_tile_image]           = EBhDisable;
     extensionBehavior[E_GL_EXT_texture_shadow_lod]          = EBhDisable;
+    extensionBehavior[E_GL_EXT_texture_query_lod]           = EBhDisable;
     extensionBehavior[E_GL_EXT_draw_instanced]              = EBhDisable;
     extensionBehavior[E_GL_EXT_texture_array]               = EBhDisable;
     extensionBehavior[E_GL_EXT_texture_offset_non_const]    = EBhDisable;
@@ -468,6 +469,7 @@ void TParseVersions::getPreamble(std::string& preamble)
             "#define GL_EXT_shadow_samplers 1\n"
             "#define GL_EXT_fragment_shading_rate 1\n"
             "#define GL_EXT_conservative_depth 1\n"
+            "#define GL_EXT_texture_query_lod 1\n"
 
             // AEP
             "#define GL_ANDROID_extension_pack_es31a 1\n"
